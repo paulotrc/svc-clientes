@@ -1,5 +1,20 @@
-
 server:
   port: 8091
   servlet:
     context-path: /svc-clientes
+
+# custom path for swagger-ui
+springdoc:
+  swagger-ui:
+    path: /swaggerui.html
+    operationsSorter: alpha
+    tagsSorter: alpha
+  # custom path for api docs
+  api-docs:
+    path: /api-docs
+
+api:
+  version: 1.0-SNAPSHOT
+  server:
+    url: https://teste.com
+  description: The User API is used to create, update, and delete users. Users can be created with or without an associated account. If an account is created, the user will be granted the <strong>ROLE_USER</strong> role. If an account is not created, the user will be granted the <b>ROLE_USER</b> role.
