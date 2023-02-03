@@ -1,6 +1,7 @@
 package com.paulotrc.svcclientes.transportlayers;
 
 import com.paulotrc.svcclientes.entites.Cliente;
+import com.paulotrc.svcclientes.entites.ClienteRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -24,7 +25,7 @@ public interface ClienteResourceI {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Cliente encontrado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            schema = @Schema(implementation = Cliente.class))}),
+                            schema = @Schema(implementation = ClienteRequest.class))}),
             @ApiResponse(responseCode = "400", description = "Cliente não encontrado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
@@ -35,7 +36,7 @@ public interface ClienteResourceI {
     })
     @GetMapping (value = "/cliente/{cpf}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
-    ResponseEntity<Cliente> get(
+    ResponseEntity<ClienteRequest> get(
             @Parameter(name = "cpf", description = "Número do CPF do Cliente", required = true)
             @PathVariable("cpf") long cpf
     );

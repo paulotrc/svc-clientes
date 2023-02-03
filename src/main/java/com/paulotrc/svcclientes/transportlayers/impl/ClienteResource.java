@@ -1,6 +1,7 @@
 package com.paulotrc.svcclientes.transportlayers.impl;
 
 import com.paulotrc.svcclientes.entites.Cliente;
+import com.paulotrc.svcclientes.entites.ClienteRequest;
 import com.paulotrc.svcclientes.transportlayers.ClienteResourceI;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.extern.slf4j.Slf4j;
@@ -14,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClienteResource implements ClienteResourceI {
 
     @Override
-    public ResponseEntity<Cliente> get(
+    public ResponseEntity<ClienteRequest> get(
             @Parameter(name = "cpf", description = "Número do CPF do Cliente", required = true)
             @PathVariable("cpf") long cpf
     ) {
-        return new ResponseEntity<Cliente>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<ClienteRequest>(HttpStatus.NOT_IMPLEMENTED);
     }
 }
