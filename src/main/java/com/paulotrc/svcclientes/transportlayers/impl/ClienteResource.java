@@ -1,7 +1,7 @@
-package com.paulotrc.svcclientes.transportlayers;
+package com.paulotrc.svcclientes.transportlayers.impl;
 
 import com.paulotrc.svcclientes.entites.Cliente;
-import com.paulotrc.svcclientes.transportlayers.resources.ClienteResourceI;
+import com.paulotrc.svcclientes.transportlayers.ClienteResourceI;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

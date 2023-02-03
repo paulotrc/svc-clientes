@@ -1,4 +1,4 @@
-package com.paulotrc.svcclientes.transportlayers.resources;
+package com.paulotrc.svcclientes.transportlayers;
 
 import com.paulotrc.svcclientes.entites.Cliente;
 import io.swagger.v3.oas.annotations.Operation;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
-@Tag(name = "Cliente Resource", description = "Recurso para consulta de clientes")
+@Tag(name = "Cliente", description = "Operações com clientes")
 @RequestMapping(value = "/api/v1")
 public interface ClienteResourceI {
 
