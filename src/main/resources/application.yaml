@@ -1,3 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://cli_adm:cli_adm@127.0.0.1:27017/
+      database: db_cli
+      authentication-database: cli_adm
+      username: cli_adm
+      password: cli_adm
+
 server:
   port: 8091
   servlet:

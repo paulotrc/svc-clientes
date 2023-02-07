@@ -1,10 +1,8 @@
-package com.paulotrc.svcclientes.entites;
+package com.paulotrc.svcclientes.transportlayers.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -12,11 +10,9 @@ import java.util.UUID;
 @Getter
 @Builder
 @AllArgsConstructor
-@Document //Anotação mongo para mapeamento do document.
-public class Cliente {
+public class ClienteRequest {
 
-    @Id
-    private UUID id = UUID.randomUUID();
+    private UUID id;
     private String nome;
     private String cpf;
     private String ddd;
