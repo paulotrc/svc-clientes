@@ -32,6 +32,9 @@ public interface ClienteResourceI {
             @ApiResponse(responseCode = "400", description = "Cliente não encontrado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
+            @ApiResponse(responseCode = "500", description = "Erro interno",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = Void.class))}),
             @ApiResponse(responseCode = "501", description = "Ainda não implementado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
@@ -44,6 +47,25 @@ public interface ClienteResourceI {
             @PathVariable("cpf") String cpf
     );
 
+    @Operation(summary = "Obter todos os clientes")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Clientes encontrados",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = ClienteRequest.class))}),
+            @ApiResponse(responseCode = "400", description = "Clientes não encontrado",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = Void.class))}),
+            @ApiResponse(responseCode = "500", description = "Erro interno",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = Void.class))}),
+            @ApiResponse(responseCode = "501", description = "Ainda não implementado",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = Void.class))}),
+
+    })
+    @GetMapping (value = "/cliente/all", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @Valid
+    ResponseEntity<List<ClienteResponse>> getAll();
 
     @Operation(summary = "Salvar os dados de um cliente")
     @ApiResponses(value = {
@@ -51,6 +73,9 @@ public interface ClienteResourceI {
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = ClienteResponse.class))}),
             @ApiResponse(responseCode = "500", description = "Erro interno",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
+                            schema = @Schema(implementation = Void.class))}),
+            @ApiResponse(responseCode = "501", description = "Ainda não implementado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = Void.class))}),
 

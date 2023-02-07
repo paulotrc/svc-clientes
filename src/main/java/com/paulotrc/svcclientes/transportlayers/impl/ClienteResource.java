@@ -44,6 +44,17 @@ public class ClienteResource implements ClienteResourceI {
     }
 
     @Override
+    public ResponseEntity<List<ClienteResponse>> getAll() {
+        List<Cliente> clientes = null;
+        try {
+            clientes = clienteUseCase.consultaTodos();
+        }catch (ResourceException e){
+            ExceptionUtil.throwException(e);
+        }
+        return ResponseEntity.ok(ClienteMapper.INSTANCE.mapListResponse(clientes));
+    }
+
+    @Override
     public ResponseEntity<ClienteResponse> post(@Valid @RequestBody ClienteRequest clienteRequest) {
         Cliente cliente = null;
         try {
