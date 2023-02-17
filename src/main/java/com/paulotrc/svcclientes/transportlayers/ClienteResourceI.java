@@ -2,6 +2,8 @@ package com.paulotrc.svcclientes.transportlayers;
 
 import com.paulotrc.svcclientes.transportlayers.dto.request.ClienteRequest;
 import com.paulotrc.svcclientes.transportlayers.dto.response.ClienteResponse;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -40,6 +42,8 @@ public interface ClienteResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @GetMapping (value = "/cliente/{cpf}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<ClienteResponse>> get(
@@ -63,6 +67,8 @@ public interface ClienteResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @GetMapping (value = "/cliente/all", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<ClienteResponse>> getAll();
@@ -80,6 +86,8 @@ public interface ClienteResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @PostMapping (value = "/cliente", produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<ClienteResponse> post(@Valid @RequestBody ClienteRequest clienteRequest);
 
